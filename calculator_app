@@ -1,0 +1,58 @@
+from tkinter import*
+
+root=Tk()
+root.geometry('265x500')
+root.title("python calculator")
+root.configure(background="sky blue")
+
+def press(item):
+    global expression
+    expression = expression + str(item)
+    input_text.set(expression)
+
+def bt_clear():
+    global expression
+    expression = ""
+    input_text.set("")
+
+def bt_Aclear():
+    global expression
+    expression = ""
+    input_text.set("")
+
+
+def bt_equal():
+    global expression
+    result = str(eval(expression))
+    input_text.set(result)
+    expression = ""
+
+expression = ""
+
+input_text = StringVar()
+
+equation=Entry(root, text='',textvariable=input_text,width=22, font=12).place(x=10, y=70)
+BT_7=Button(root, text="7",height=2, width=5, font=9, bg='Gold',command=lambda: press(7)).place(x=5, y=170)
+BT_8=Button(root, text="8",height=2, width=5, font=9, bg='Gold',command=lambda: press(8)).place(x=65, y=170)
+BT_9=Button(root, text="9",height=2, width=5, font=9, bg='Gold',command=lambda: press(9)).place(x=125, y=170)
+BT_4=Button(root, text="4",height=2, width=5, font=9, bg='Gold',command=lambda: press(4)).place(x=5, y=225)
+BT_5=Button(root, text="5",height=2, width=5, font=9, bg='Gold',command=lambda: press(5)).place(x=65, y=225)
+BT_6=Button(root, text="6",height=2, width=5, font=9, bg='Gold',command=lambda: press(6)).place(x=125, y=225)
+BT_1=Button(root, text="1",height=2, width=5, font=9, bg='Gold',command=lambda: press(1)).place(x=5, y=280)
+BT_2=Button(root, text="2",height=2, width=5, font=9, bg='Gold',command=lambda: press(2)).place(x=65, y=280)
+BT_3=Button(root, text="3",height=2, width=5, font=9, bg='Gold',command=lambda: press(3)).place(x=125, y=280)
+BT_0=Button(root, text="0",height=2, width=5, font=9, bg='Gold',command=lambda: press(0)).place(x=5, y=340)
+
+BT_add=Button(root, text="+",height=2, width=5, font=9, bg='Darkorange',command=lambda: press("+")).place(x=195, y=340)
+BT_subtract=Button(root, text="-",height=2, width=5, font=9, bg='Darkorange',command=lambda: press("-")).place(x=195, y=280)
+BT_multiply=Button(root, text="x",height=2, width=5, font=9, bg='Darkorange',command=lambda: press("*")).place(x=195, y=225)
+BT_divied=Button(root, text="/",height=2, width=5, font=9, bg='Darkorange',command=lambda: press("/")).place(x=195, y=170)
+BT_decimal=Button(root, text=".",height=2, width=5, font=9, bg='Darkorange',command=lambda: press(".")).place(x=65, y=340)
+BT_bracket_open=Button(root, text="(",height=2, width=5, font=9, bg='Darkorange',command=lambda: press("(")).place(x=65, y=110)
+BT_bracket_close=Button(root, text=")",height=2, width=5, font=9, bg='Darkorange',command=lambda: press(")")).place(x=125, y=110)
+BT_equal=Button(root, text="=",height=2, width=5, font=9, bg='Blue',command=lambda: bt_equal()).place(x=125, y=340)
+BT_clear=Button(root, text="C",height=2, width=5, font=9, bg='OrangeRed',command=lambda: bt_clear()).place(x=195, y=110)
+BT_AC=Button(root, text="AC",height=2, width=5, font=9, bg='Red',command=lambda: bt_clear()).place(x=5, y=110)
+BT_OK=Button(root, text="OK",height=2, width=5, font=9, bg='Cadetblue',command=lambda: bt_equal()).place(x=7, y=420)
+
+root.mainloop()
